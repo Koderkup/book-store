@@ -15,8 +15,13 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
 
       <div className="product_box">
         <h2 title={product.title}>{product.title}</h2>
-        <span>${product.price}</span>
-        <p>{product.description}</p>
+        <span className="price">{product.price} руб </span>
+        <span>кол-во {product.quantity} шт</span>
+        <p>
+          <span>{product.author}</span>
+          <br />
+          {product.description}
+        </p>
       </div>
 
       <BtnRender product={product} deleteProduct={deleteProduct} />

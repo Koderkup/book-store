@@ -28,6 +28,7 @@ function Login() {
 
   return (
     <div className="login-page">
+        login component
       <form onSubmit={loginSubmit}>
         <h2>Login</h2>
         <input
@@ -58,4 +59,4 @@ function Login() {
   );
 }
 
-export default Login;
+ export default Login;

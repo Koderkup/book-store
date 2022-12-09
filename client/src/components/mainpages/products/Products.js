@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
-import { GlobalState } from "../../../GlobalState";
-import ProductItem from "../utils/productItem/ProductItem";
-import Loading from "../utils/loading/Loading";
-import axios from "axios";
-import Filters from "./Filters";
-import LoadMore from "./LoadMore";
+ import React, { useContext, useState } from "react";
+ import { GlobalState } from "../../../GlobalState";
+ import ProductItem from "../utils/productItem/ProductItem";
+ import Loading from "../utils/loading/Loading";
+ import axios from "axios";
+ import Filters from "./Filters";
+ import LoadMore from "./LoadMore";
 
-function Products() {
+ function Products() {
   const state = useContext(GlobalState);
   const [products, setProducts] = state.productsAPI.products;
-  const [isAdmin] = state.userAPI.isAdmin;
-  const [token] = state.token;
-  const [callback, setCallback] = state.productsAPI.callback;
-  const [loading, setLoading] = useState(false);
-  const [isCheck, setIsCheck] = useState(false);
+   const [isAdmin] = state.userAPI.isAdmin;
+   const [token] = state.token;
+   const [callback, setCallback] = state.productsAPI.callback;
+   const [loading, setLoading] = useState(false);
+   const [isCheck, setIsCheck] = useState(false);
 
   const handleCheck = (id) => {
     products.forEach((product) => {
@@ -62,11 +62,12 @@ function Products() {
   if (loading)
     return (
       <div>
-        <Loading />
+         <Loading /> 
       </div>
     );
   return (
     <>
+   
       <Filters />
 
       {isAdmin && (
@@ -76,7 +77,6 @@ function Products() {
           <button onClick={deleteAll}>Delete ALL</button>
         </div>
       )}
-
       <div className="products">
         {products.map((product) => {
           return (
@@ -95,6 +95,6 @@ function Products() {
       {products.length === 0 && <Loading />}
     </>
   );
-}
+ }
 
-export default Products;
+ export default Products;

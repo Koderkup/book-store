@@ -29,22 +29,22 @@ function DetailProduct() {
             <h2>{detailProduct.title}</h2>
             <h6>#id: {detailProduct.product_id}</h6>
           </div>
-          <span>$ {detailProduct.price}</span>
+          <span>руб {detailProduct.price}</span>
           <p>{detailProduct.description}</p>
           <p>{detailProduct.author}</p>
-          <p>Sold: {detailProduct.sold}</p>
+          <p>Продано: {detailProduct.sold}</p>
           <Link
             to="/cart"
             className="cart"
             onClick={() => addCart(detailProduct)}
           >
-            Buy Now
+            Купить сейчас
           </Link>
         </div>
       </div>
 
       <div>
-        <h2>Related products</h2>
+        <h2>Похожие товары</h2>
         <div className="products">
           {products.map((product) => {
             return product.category === detailProduct.category ? (

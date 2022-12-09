@@ -8,7 +8,6 @@ function Cart() {
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
-
   useEffect(() => {
     const getTotal = () => {
       const total = cart.reduce((prev, item) => {
@@ -54,7 +53,7 @@ function Cart() {
   };
 
   const removeProduct = (id) => {
-    if (window.confirm("Do you want to delete this product?")) {
+    if (window.confirm("Вы хотите удалить этот продукт?")) {
       cart.forEach((item, index) => {
         if (item._id === id) {
           cart.splice(index, 1);
@@ -79,12 +78,12 @@ function Cart() {
 
     setCart([]);
     addToCart([]);
-    alert("You have successfully placed an order.");
+    alert("Вы успешно разместили заказ.");
   };
 
   if (cart.length === 0)
     return (
-      <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
+      <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Корзина пустая</h2>
     );
 
   return (
@@ -96,7 +95,7 @@ function Cart() {
           <div className="box-detail">
             <h2>{product.title}</h2>
 
-            <h3>$ {product.price * product.quantity}</h3>
+            <h3>руб {product.price * product.quantity}</h3>
             <p>{product.description}</p>
             <p>{product.content}</p>
 
@@ -114,7 +113,7 @@ function Cart() {
       ))}
 
       <div className="total">
-        <h3>Total: $ {total}</h3>
+        <h3>Всего: руб {total}</h3>
         <PaypalButton total={total} tranSuccess={tranSuccess} />
       </div>
     </div>

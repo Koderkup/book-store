@@ -24,6 +24,10 @@
 }
 .product_card span{
     color: crimson;
+    font-weight: bold;
+}
+.product_card .product_box .price {
+    margin-right: 80px;
 }
 .product_box p{
     width: 100%;
@@ -34,6 +38,7 @@
     overflow: hidden;
     color: #323232;
 }
+
 .row_btn{
     width: 100%;
     margin-top: 10px;

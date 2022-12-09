@@ -11,13 +11,14 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-// загрузить image только admin может
+// загрузить image только admin может  
 router.post("/upload", auth, authAdmin, (req, res) => {
   try {
     if (!req.files || Object.keys(req.files).length === 0)
       return res.status(400).json({ msg: "No files were uploaded." });
 
     const file = req.files.file;
+
     if (file.size > 1024 * 1024) {
       removeTmp(file.tempFilePath);
       return res.status(400).json({ msg: "Size too large" });
@@ -44,7 +45,7 @@ router.post("/upload", auth, authAdmin, (req, res) => {
   }
 });
 
-// удалить image только admin может
+// удалить image только admin может 
 router.post("/destroy", auth, authAdmin, (req, res) => {
   try {
     const { public_id } = req.body;

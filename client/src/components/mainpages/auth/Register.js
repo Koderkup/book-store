@@ -29,7 +29,8 @@ function Register() {
 
   return (
     <div className="login-page">
-      <form onSubmit={registerSubmit}>
+        register component
+     <form onSubmit={registerSubmit}>
         <h2>Register</h2>
         <input
           type="text"
@@ -63,7 +64,7 @@ function Register() {
           <button type="submit">Register</button>
           <Link to="/login">Login</Link>
         </div>
-      </form>
+  </form>
     </div>
   );
 }

@@ -1,13 +1,13 @@
-import React, { createContext, useState, useEffect } from "react";
-import ProductsAPI from "./api/ProductsAPI";
+ import React, { createContext, useState, useEffect } from "react";
+ import ProductsAPI from "./api/ProductsAPI";
 import UserAPI from "./api/UserAPI";
 import CategoriesAPI from "./api/CategoriesAPI";
-
 import axios from "axios";
 
-export const GlobalState = createContext();
+ export const GlobalState = createContext();
 
-export const DataProvider = ({ children }) => {
+ export const DataProvider = ({ children }) => {
+  ProductsAPI()
   const [token, setToken] = useState(false);
 
   useEffect(() => {
@@ -33,5 +33,5 @@ export const DataProvider = ({ children }) => {
     categoriesAPI: CategoriesAPI(),
   };
 
-  return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
-};
+   return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
+ };
