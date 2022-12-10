@@ -72,9 +72,9 @@
 
       {isAdmin && (
         <div className="delete-all">
-          <span>Select all</span>
+          <span>Выбрать все</span>
           <input type="checkbox" checked={isCheck} onChange={checkAll} />
-          <button onClick={deleteAll}>Delete ALL</button>
+          <button onClick={deleteAll}>Удалить все</button>
         </div>
       )}
       <div className="products">

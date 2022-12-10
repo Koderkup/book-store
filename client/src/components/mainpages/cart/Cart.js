@@ -1,13 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
-import PaypalButton from "./PaypalButton";
+import { nanoid } from "nanoid";
 
 function Cart() {
   const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [total, setTotal] = useState(0);
+  const [address] = state.userAPI.email;
+  
+ 
   useEffect(() => {
     const getTotal = () => {
       const total = cart.reduce((prev, item) => {
@@ -19,6 +22,8 @@ function Cart() {
 
     getTotal();
   }, [cart]);
+
+  
 
   const addToCart = async (cart) => {
     await axios.patch(
@@ -65,17 +70,20 @@ function Cart() {
     }
   };
 
-  const tranSuccess = async (payment) => {
-    const { paymentID, address } = payment;
-
-    await axios.post(
-      "/api/payment",
-      { cart, paymentID, address },
-      {
-        headers: { Authorization: token },
-      }
-    );
-
+  const tranSuccess = async () => {
+    const paymentID = nanoid()
+    try {
+      await axios.post(
+        "/api/payment",
+        { cart, paymentID, address},
+        {
+          headers: { Authorization: token },
+        }
+      );
+    } catch (error) {
+      console.error(error.response.data);
+    }
+    
     setCart([]);
     addToCart([]);
     alert("Вы успешно разместили заказ.");
@@ -97,7 +105,7 @@ function Cart() {
 
             <h3>руб {product.price * product.quantity}</h3>
             <p>{product.description}</p>
-            <p>{product.content}</p>
+            <p>{product.author}</p>
 
             <div className="amount">
               <button onClick={() => decrement(product._id)}> - </button>
@@ -114,7 +122,8 @@ function Cart() {
 
       <div className="total">
         <h3>Всего: руб {total}</h3>
-        <PaypalButton total={total} tranSuccess={tranSuccess} />
+        <button className = "paypal" onClick={()=>tranSuccess()}>Купить</button>
+
       </div>
     </div>
   );

@@ -1,55 +1,57 @@
 import React from "react";
-import PaypalExpressBtn from "react-paypal-express-checkout";
+//import PaypalExpressBtn from "react-paypal-express-checkout";
 
-export default class PaypalButton extends React.Component {
-  render() {
-    const onSuccess = (payment) => {
+// export default class PaypalButton extends React.Component {
+//   render() {
+//     const onSuccess = (payment) => {
       
-      console.log("The payment was succeeded!", payment);
+//       console.log("Платёж прошел успешно!", payment);
      
-      this.props.tranSuccess(payment);
-    };
+//       this.props.tranSuccess(payment);
+//     };
 
-    const onCancel = (data) => {
+//     const onCancel = (data) => {
   
-      console.log("The payment was cancelled!", data);
+//       console.log("Платёж был отменён!", data);
       
-    };
+//     };
 
-    const onError = (err) => {
+//     const onError = (err) => {
     
-      console.log("Error!", err);
+//       console.log("Ошибка!", err);
       
-    };
+//     };
 
-    let env = "sandbox"; 
-    let currency = "USD"; 
-    let total = this.props.total; 
+//     let env = "sandbox"; 
+//     let currency = "USD"; 
+//     let total = this.props.total; 
     
-    const client = {
-      sandbox: "YOUR-sandbox-APP-ID",
-      production: "YOUR-PRODUCTION-APP-ID",
-    };
+//     const client = {
+//       sandbox: "YOUR-sandbox-APP-ID",
+//       production: "YOUR-PRODUCTION-APP-ID",
+//     };
     
-    let style = {
-      size: "small",
-      color: "blue",
-      shape: "rect",
-      label: "checkout",
-      tagline: false,
-    };
+//     let style = {
+//       size: "small",
+//       color: "blue",
+//       shape: "rect",
+//       label: "checkout",
+//       tagline: false,
+//     };
 
-    return (
-      <PaypalExpressBtn
-        env={env}
-        client={client}
-        currency={currency}
-        total={total}
-        onError={onError}
-        onSuccess={onSuccess}
-        onCancel={onCancel}
-        style={style}
-      />
-    );
-  }
-}
+//     return (
+//       <PaypalExpressBtn
+//         env={env}
+//         client={client}
+//         currency={currency}
+//         total={total}
+//         onError={onError}
+//         onSuccess={onSuccess}
+//         onCancel={onCancel}
+//         style={style}
+//       />
+//     );
+//   }
+// }
+
+ 

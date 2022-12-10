@@ -157,7 +157,7 @@ function CreateProduct() {
 
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <label htmlFor="product_id">Product ID</label>
+          <label htmlFor="product_id">Товар ID</label>
           <input
             type="text"
             name="product_id"
@@ -170,7 +170,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Название</label>
           <input
             type="text"
             name="title"
@@ -182,7 +182,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="price">Цена</label>
           <input
             type="number"
             name="price"
@@ -194,7 +194,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Описание</label>
           <textarea
             type="text"
             name="description"
@@ -207,7 +207,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="author">Author</label>
+          <label htmlFor="author">Автор</label>
           <textarea
             type="text"
             name="author"
@@ -220,13 +220,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="categories">Categories: </label>
+          <label htmlFor="categories">Категории: </label>
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-            <option value="">Please select a category</option>
+            <option value="">Пожалуйста выберите категорию</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
@@ -235,7 +235,7 @@ function CreateProduct() {
           </select>
         </div>
         <div className="row">
-          <label htmlFor="quantity">Price</label>
+          <label htmlFor="quantity">Кол-во</label>
           <input
             type="number"
             name="quantity"

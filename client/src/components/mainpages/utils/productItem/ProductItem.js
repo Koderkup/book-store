@@ -16,7 +16,7 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
       <div className="product_box">
         <h2 title={product.title}>{product.title}</h2>
         <span className="price">{product.price} руб </span>
-        <span>кол-во {product.quantity} шт</span>
+        {product.quantity > 0 ?  <span>кол-во {product.quantity} шт</span> : <span>нет в наличии</span>}       
         <p>
           <span>{product.author}</span>
           <br />

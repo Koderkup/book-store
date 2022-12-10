@@ -30,3 +30,15 @@
 .total h3{
     color: crimson;
 }
+
+.paypal{
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: #0B5AFB;
+    border: 1px solid black;
+    border-radius: 5%;
+    letter-spacing: 5px;
+    font-family: Italic;
+}

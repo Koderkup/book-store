@@ -19,14 +19,21 @@ function BtnRender({ product, deleteProduct }) {
             Удалить
           </Link>
           <Link id="btn_view" to={`/edit_product/${product._id}`}>
-            Редактировать
+            Изменить
           </Link>
         </>
       ) : (
         <>
-          <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
-            Купить
-          </Link>
+          {product.quantity > 0 ? (
+            <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
+              Купить
+            </Link>
+          ) : (
+            <Link id="btn_buy" to="#!" onClick={() => alert("нет в наличии")}>
+              Купить
+            </Link>
+          )}
+
           <Link id="btn_view" to={`/detail/${product._id}`}>
             Смотреть
           </Link>

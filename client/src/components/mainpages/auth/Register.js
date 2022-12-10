@@ -61,7 +61,7 @@ function Register() {
         />
 
         <div className="row">
-          <button type="submit">Register</button>
+          <button type="submit">Регистрация</button>
           <Link to="/login">Login</Link>
         </div>
   </form>

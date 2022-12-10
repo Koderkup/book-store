@@ -24,10 +24,10 @@ function OrderDetails() {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Postal Code</th>
-            <th>Country Code</th>
+            <th>Имя</th>
+            <th>Адрес</th>
+            <th>Почтовый код</th>
+            <th>Код страны</th>
           </tr>
         </thead>
         <tbody>
@@ -46,9 +46,9 @@ function OrderDetails() {
         <thead>
           <tr>
             <th></th>
-            <th>Products</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>Товары</th>
+            <th>Кол-во</th>
+            <th>Цена</th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +59,7 @@ function OrderDetails() {
               </td>
               <td>{item.title}</td>
               <td>{item.quantity}</td>
-              <td>$ {item.price * item.quantity}</td>
+              <td>руб {item.price * item.quantity}</td>
             </tr>
           ))}
         </tbody>

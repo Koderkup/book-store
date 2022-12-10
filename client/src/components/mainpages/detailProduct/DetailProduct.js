@@ -33,13 +33,15 @@ function DetailProduct() {
           <p>{detailProduct.description}</p>
           <p>{detailProduct.author}</p>
           <p>Продано: {detailProduct.sold}</p>
-          <Link
-            to="/cart"
-            className="cart"
-            onClick={() => addCart(detailProduct)}
-          >
-            Купить сейчас
-          </Link>
+          {detailProduct.quantity > 0 ? (
+            <Link
+              to="/cart"
+              className="cart"
+              onClick={() => addCart(detailProduct)}
+            >
+              Купить сейчас
+            </Link>
+          ) : null}
         </div>
       </div>
 

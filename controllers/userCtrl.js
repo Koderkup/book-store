@@ -12,12 +12,12 @@ const { request } = require("express");
 
       const user = await Users.findOne({ email });
       if (user)
-        return res.status(400).json({ msg: "The email already exists." });
+        return res.status(400).json({ msg: "Такой email уже существует." });
 
        if (password.length < 6)
          return res
            .status(400)
-           .json({ msg: "Password is at least 6 characters long." });
+           .json({ msg: "Наименьшая длина пароля ровна 6-ти символам." });
 
       // Пароль Encryption
        const passwordHash = await bcrypt.hash(password, 10);
@@ -30,7 +30,7 @@ const { request } = require("express");
        // сохраняем в mongodb
        await newUser.save();
 
-      // Создаем jsonwebtoken для authentication
+      // Создаем jsonwebtoken для аунтификации
        const accesstoken = createAccessToken({ id: newUser._id });
        const refreshtoken = createRefreshToken({ id: newUser._id });
 
@@ -50,10 +50,10 @@ const { request } = require("express");
       const { email, password } = req.body;
 
       const user = await Users.findOne({ email });
-      if (!user) return res.status(400).json({ msg: "User does not exist." });
+      if (!user) return res.status(400).json({ msg: "Такой пользователь не существует." });
 
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(400).json({ msg: "Incorrect password." });
+      if (!isMatch) return res.status(400).json({ msg: "Неправильный пароль." });
 
        //если login успешен , создаем access token и refresh token
       
@@ -83,11 +83,11 @@ const { request } = require("express");
     try {
       const rf_token = req.cookies.refreshtoken;
       if (!rf_token)
-        return res.status(400).json({ msg: "Please Login or Register" });
+        return res.status(400).json({ msg: "Пожалуйста Login или Register" });
 
       jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
         if (err)
-          return res.status(400).json({ msg: "Please Login or Register" });
+          return res.status(400).json({ msg: "Пожалуйста Login или Register" });
 
         const accesstoken = createAccessToken({ id: user.id });
 
@@ -100,7 +100,9 @@ const { request } = require("express");
   getUser: async (req, res) => {
     try {
       const user = await Users.findById(req.user.id).select("-password");
-      if (!user) return res.status(400).json({ msg: "User does not exist." });
+      if (!user) return res
+        .status(400)
+        .json({ msg: "Такой пользователь не существует." });
 
       res.json(user);
     } catch (err) {
@@ -110,7 +112,7 @@ const { request } = require("express");
   addCart: async (req, res) => {
     try {
       const user = await Users.findById(req.user.id);
-      if (!user) return res.status(400).json({ msg: "User does not exist." });
+      if (!user) return res.status(400).json({ msg: "Пользователь не существует." });
 
       await Users.findOneAndUpdate(
         { _id: req.user.id },
@@ -119,7 +121,7 @@ const { request } = require("express");
         }
       );
 
-      return res.json({ msg: "Added to cart" });
+      return res.json({ msg: "Добавлено в корзину" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

@@ -28,7 +28,6 @@ function Login() {
 
   return (
     <div className="login-page">
-        login component
       <form onSubmit={loginSubmit}>
         <h2>Login</h2>
         <input
@@ -52,7 +51,7 @@ function Login() {
 
         <div className="row">
           <button type="submit">Login</button>
-          <Link to="/register">Register</Link>
+          <Link to="/register">Регистрация</Link>
         </div>
       </form>
     </div>

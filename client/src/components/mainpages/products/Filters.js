@@ -17,9 +17,9 @@ function Filters() {
   return (
     <div className="filter_menu">
       <div className="row">
-        <span>Filters: </span>
+        <span>Фильтр: </span>
         <select name="category" value={category} onChange={handleCategory}>
-          <option value="">All Products</option>
+          <option value="">Все товары</option>
           {categories.map((category) => (
             <option value={"category=" + category._id} key={category._id}>
               {category.name}
@@ -31,18 +31,18 @@ function Filters() {
       <input
         type="text"
         value={search}
-        placeholder="Enter your search!"
+        placeholder="Введите что искать!"
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
       />
 
       <div className="row sort">
-        <span>Sort By: </span>
+        <span>Сортировать по: </span>
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
-          <option value="">Newest</option>
-          <option value="sort=oldest">Oldest</option>
-          <option value="sort=-sold">Best sales</option>
-          <option value="sort=-price">Price: Hight-Low</option>
-          <option value="sort=price">Price: Low-Hight</option>
+          <option value="">Последние</option>
+          <option value="sort=oldest">Не новые</option>
+          <option value="sort=-sold">Лучшие продажи</option>
+          <option value="sort=-price">Цена: По-убыванию</option>
+          <option value="sort=price">Цена: По-возрастанию</option>
         </select>
       </div>
     </div>
