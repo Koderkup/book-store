@@ -60,7 +60,7 @@ function CreateProduct() {
 
       if (file.size > 1024 * 1024)
         // 1mb
-        return alert("Зазмер слишком большой!");
+        return alert("Размер слишком большой!");
 
       if (file.type !== "image/jpeg" && file.type !== "image/png")
         // 1mb

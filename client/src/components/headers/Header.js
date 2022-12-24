@@ -13,6 +13,7 @@
   const [cart] =  state.userAPI.cart;
   const [menu, setMenu] = useState(false);
   const [name] = state.userAPI.name;
+  
  const logoutUser = async () => {
    await axios.get("/user/logout");
 

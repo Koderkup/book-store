@@ -32,12 +32,12 @@ function OrderDetails() {
         </thead>
         <tbody>
           <tr>
-            <td>{orderDetails.address.recipient_name}</td>
+            <td>{orderDetails.name}</td>
             <td>
-              {orderDetails.address.line1 + " - " + orderDetails.address.city}
+              {orderDetails.address}
             </td>
-            <td>{orderDetails.address.postal_code}</td>
-            <td>{orderDetails.address.country_code}</td>
+            <td>{orderDetails.address.postal_code ? orderDetails.address.postal_code : '210040'}</td>
+            <td>{orderDetails.address.country_code ? orderDetails.address.country_code: '+375'}</td>
           </tr>
         </tbody>
       </table>

@@ -9,6 +9,7 @@ function OrderHistory() {
   const [name] = state.userAPI.name;
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
+  
   useEffect(() => {
     if (token) {
       const getHistory = async () => {
@@ -33,7 +34,7 @@ function OrderHistory() {
       <h2>История</h2>
 
       <h4>
-        За все время Вы, {name} <span style={{color: "red", fontSize: "32px"}}>{history.length}</span> заказали
+        Ваши заказы, {name} равны: <span style={{color: "red", fontSize: "32px"}}>{history.length}</span>
       </h4>
 
       <table>

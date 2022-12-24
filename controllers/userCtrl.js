@@ -1,5 +1,5 @@
  const Users = require("../models/userModel");
-// const Payments = require("../models/paymentModel");
+ const Payments = require("../models/paymentModel");
  const bcrypt = require("bcrypt");
  const jwt = require("jsonwebtoken");
 
@@ -17,7 +17,7 @@ const { request } = require("express");
        if (password.length < 6)
          return res
            .status(400)
-           .json({ msg: "Наименьшая длина пароля ровна 6-ти символам." });
+           .json({ msg: "Наименьшая длина пароля равна 6-ти символам." });
 
       // Пароль Encryption
        const passwordHash = await bcrypt.hash(password, 10);

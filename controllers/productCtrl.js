@@ -79,11 +79,11 @@ const productCtrl = {
         category,
         quantity,
       } = req.body;
-      if (!images) return res.status(400).json({ msg: "No image upload" });
+      if (!images) return res.status(400).json({ msg: "Никаких изображений не загружено" });
 
       const product = await Products.findOne({ product_id });
       if (product)
-        return res.status(400).json({ msg: "This product already exists." });
+        return res.status(400).json({ msg: "Этот товар уже существует." });
 
       const newProduct = new Products({
         product_id,
@@ -97,7 +97,7 @@ const productCtrl = {
       });
 
       await newProduct.save();
-      res.json({ msg: "Created a product" });
+      res.json({ msg: "Товар создан" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -105,7 +105,7 @@ const productCtrl = {
   deleteProduct: async (req, res) => {
     try {
       await Products.findByIdAndDelete(req.params.id);
-      res.json({ msg: "Deleted a Product" });
+      res.json({ msg: "Товар удален" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -114,7 +114,7 @@ const productCtrl = {
     try {
       const { title, price, description, author, images, category, quantity } =
         req.body;
-      if (!images) return res.status(400).json({ msg: "No image upload" });
+      if (!images) return res.status(400).json({ msg: "Изображений не загружено" });
 
       await Products.findOneAndUpdate(
         { _id: req.params.id },
@@ -129,7 +129,7 @@ const productCtrl = {
         }
       );
 
-      res.json({ msg: "Updated a Product" });
+      res.json({ msg: "Товар обнавлен" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
