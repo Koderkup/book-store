@@ -11,7 +11,7 @@ function LoadMore() {
       {result < page * 9 ? (
         ""
       ) : (
-        <button onClick={() => setPage(page + 1)}>Load more</button>
+        <button onClick={() => setPage(page + 1)}>Загрузить больше</button>
       )}
     </div>
   );
