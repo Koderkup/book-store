@@ -48,13 +48,16 @@ const sold = async (id, quant, oldSold) => {
     { _id: id },
     {
       sold: quant + oldSold,
-    }
+    },
+  
   );
-  const oldQuantity = await Users.findById(id).select("quantity");
+  const oldQuantity = await Products.findOne({ _id: id });
+  //const newQuantity = oldQuantity -1;
+  console.log(oldQuantity.quantity);
   await Products.findOneAndUpdate(
     { _id: id },
     {
-      quantity: (oldQuantity - quant)-1,
+      quantity: oldQuantity.quantity -1
     }
   );
 };

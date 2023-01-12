@@ -33,11 +33,11 @@ mongoose.connect(URI, {
     useUnifiedTopology: true
 }, err =>{
     if(err) {throw err;}
-    console.log('Connected to MongoDB')
+    console.log('Подключен к MongoDB')
 })
 
 app.get('/', (req, res) =>{
-  res.json({msg: "welcom to my server"})
+  res.json({msg: "добро пожаловать на мой сервер"})
 })
 
 if(process.env.NODE_ENV === 'production'){
@@ -50,5 +50,5 @@ if(process.env.NODE_ENV === 'production'){
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log("Server is running on port", PORT);
+  console.log("Сервер запущен на порту ", PORT);
 });

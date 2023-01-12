@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 //import PaypalExpressBtn from "react-paypal-express-checkout";
 
 // export default class PaypalButton extends React.Component {

@@ -10,20 +10,26 @@ class APIfeatures {
   filtering() {
     const queryObj = { ...this.queryString }; //queryString = req.query
 
-    const excludedFields = ["page", "sort", "limit"];
-    excludedFields.forEach((el) => delete queryObj[el]);
+    const excludedFields = ['page', 'sort', 'limit'];
+    excludedFields.forEach(el => delete(queryObj[el]));
 
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(
       /\b(gte|gt|lt|lte|regex)\b/g,
       (match) => "$" + match
     );
+ let cryteria = JSON.parse(queryStr).category;
 
     //    gte = greater than or equal
     //    lte = lesser than or equal
     //    lt = lesser than
     //    gt = greater than
-    this.query.find(JSON.parse(queryStr));
+    if (cryteria) {
+ this.query.find({ category: cryteria });
+    } else {
+      this.query.find(JSON.parse(queryStr));
+    }
+   
 
     return this;
   }

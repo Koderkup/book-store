@@ -11,17 +11,17 @@ function Filters() {
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
-    setSearch("");
+    //setSearch("");
   };
 
   return (
     <div className="filter_menu">
       <div className="row">
         <span>Фильтр: </span>
-        <select name="category" value={category} onChange={handleCategory}>
+        <select name="category" value={category} onChange={(e)=>setCategory(e.target.value)}>
           <option value="">Все товары</option>
           {categories.map((category) => (
-            <option value={"category=" + category._id} key={category._id}>
+            <option value={"category=" + category.name} key={category._id}>
               {category.name}
             </option>
           ))}
