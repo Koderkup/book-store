@@ -18,7 +18,12 @@ function Filters() {
     <div className="filter_menu">
       <div className="row">
         <span>Фильтр: </span>
-        <select name="category" value={category} onChange={(e)=>setCategory(e.target.value)}>
+        <select
+          data-testid="cutegory-select"
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="">Все товары</option>
           {categories.map((category) => (
             <option value={"category=" + category.name} key={category._id}>
@@ -37,7 +42,11 @@ function Filters() {
 
       <div className="row sort">
         <span>Сортировать по: </span>
-        <select value={sort} onChange={(e) => setSort(e.target.value)}>
+        <select
+          data-testid="sort-select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+        >
           <option value="">Последние</option>
           <option value="sort=oldest">Не новые</option>
           <option value="sort=-sold">Лучшие продажи</option>

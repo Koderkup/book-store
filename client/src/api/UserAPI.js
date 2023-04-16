@@ -21,7 +21,11 @@ function UserAPI(token) {
           setCart(res.data.cart);
           setEmail(res.data.email);
         } catch (err) {
-          alert(err.response.data.msg);
+          if (err.response && err.response.data) {
+            alert(err.response.data.msg);
+          } else {
+            alert("Что-то пошло не так. Попробуйте позже");
+          }
         }
       };
 
@@ -31,7 +35,7 @@ function UserAPI(token) {
 
   const addCart = async (product) => {
     if (!isLogged)
-      return alert("Пожалуйста зарегестрируйтесь для совершения покупок");
+      return alert("Пожалуйста зарегистрируйтесь для совершения покупок.");
 
     const check = cart.every((item) => {
       return item._id !== product._id;
@@ -48,7 +52,7 @@ function UserAPI(token) {
         }
       );
     } else {
-      alert("Этот продукт был добавлен в корзину.");
+      alert("Этот продукт уже добавлен в корзину.");
     }
   };
 

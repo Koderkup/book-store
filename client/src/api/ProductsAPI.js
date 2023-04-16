@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function ProductsAPI() {
   const [products, setProducts] = useState([]);
-   const [callback, setCallback] = useState(false);
+  const [callback, setCallback] = useState(false);
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
@@ -25,12 +25,13 @@ function ProductsAPI() {
 
   return {
     products: [products, setProducts],
-     callback: [callback, setCallback],
+    callback: [callback, setCallback],
     category: [category, setCategory],
     sort: [sort, setSort],
     search: [search, setSearch],
     page: [page, setPage],
     result: [result, setResult],
+    getProducts,
   };
 }
 
