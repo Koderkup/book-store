@@ -66,7 +66,7 @@
         </h1>
       </div>
 
-      <ul style={styleMenu}>
+      <ul style={styleMenu} data-testid="mobile-header">
         <li>
           <Link to="/">{isAdmin ? "Товары" : "Магазин"}</Link>
         </li>
@@ -82,7 +82,7 @@
         )}
 
         <li onClick={() => setMenu(!menu)}>
-          <img src={Close} alt="" width="30" className="menu" />
+          <img src={Close} alt="close" width="30" className="menu" />
         </li>
       </ul>
 

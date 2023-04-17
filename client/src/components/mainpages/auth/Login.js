@@ -27,7 +27,7 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
+    <div className="login-page" data-testid="registration-form">
       <form onSubmit={loginSubmit}>
         <h2>Login</h2>
         <input
