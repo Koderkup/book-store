@@ -1,11 +1,8 @@
 import React from "react";
 import { screen, fireEvent, waitFor } from "@testing-library/react";
-import { waitForElementToBeVisible, renderHook } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
 import Header from "./Header";
 import renderWithProviders from "../../components/mainpages/utils/renderWithProviders";
-import Login from "../mainpages/auth/Login";
-import Register from "../mainpages/auth/Register";
 
 
   jest.mock("../mainpages/auth/Login", () => ({

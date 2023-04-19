@@ -9,6 +9,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -19,6 +23,8 @@ code {
   margin: 0 auto;
   padding: 0 20px;
   box-shadow: 0 0 35px #eee;
+  display: flex;
+  flex-direction: column;
 }
 a{
   text-decoration: none;
